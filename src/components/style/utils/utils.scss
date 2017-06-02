@@ -1,0 +1,133 @@
+$font: 112.5;
+.dn {
+    display: none;
+    opacity: 0;
+    z-index: -1;
+}
+
+%flex {
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+%h_center {
+    @extend %flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-pack: center;
+    box-pack: center;
+}
+
+%h_start {
+    @extend %flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    box-pack: start;
+    -webkit-box-align: center;
+    box-align: center;
+}
+
+%h_space {
+    @extend %flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    box-pack: justify;
+    -webkit-box-align: center;
+    box-align: center;
+}
+
+%h_around {
+    @extend %flex;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+%v_start {
+    @extend %flex;
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    box-pack: start;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-align: center;
+    box-align: center;
+}
+
+%v_center {
+    @extend %flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-align: center;
+    box-align: center;
+}
+
+%all_center {
+    @extend %flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    box-pack: center;
+    -webkit-box-align: center;
+    box-align: center;
+}
+
+// 垂直两边居中，初始位靠左；
+%v_between {
+    @extend %flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-pack: justify;
+    box-pack: justify;
+    -webkit-box-align: start;
+    box-align: start;
+}
+
+$url: '../img' default;
+@mixin bgu($url, $img) {
+    background: url("#{$url}/x3/#{$img}") no-repeat;
+    background-size: cover;
+    [data-dpr="2"] & {
+        background: url("#{$url}/x2/#{$img}") no-repeat;
+        background-size: cover;
+    }
+    [data-dpr="1"] & {
+        background: url("#{$url}/x1_5/#{$img}") no-repeat;
+        background-size: cover;
+    }
+}
+
+@mixin font($font:42px) {
+    font-size: $font;
+    [data-dpr="1"] & {
+        font-size: $font/3;
+    }
+    [data-dpr="2"] & {
+        font-size: $font/1.5;
+    }
+    [data-dpr="3"] & {
+        font-size: $font;
+    }
+}
